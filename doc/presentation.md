@@ -9,34 +9,51 @@
     padding-top:    0.5em;
   }
 
-  .remark-slide-container:first-child .remark-slide-number,
+  .remark-slide-container:first-child .remark-slide-number /* ,
   .remark-slide-container:nth-child(2) .remark-slide-number,
-  .remark-slide-container:last-child .remark-slide-number {
+  .remark-slide-container:last-child .remark-slide-number */ {
     visibility:     hidden;
   }
 
+  .remark-slide-number,
   .remark-slide-content .footer {
     position:       absolute;
-    bottom:         12px;
-    left:           20px;
-    opacity:        0.5;
+    bottom:         0.5rem;
+	font-size:      67%;
+	line-height:    24px;
+    opacity:        1;
+  }
+
+  .remark-slide-number {
+    right:          1rem;
+  }
+
+  .remark-slide-content .footer {
+    left:           1rem;
   }
 
   .remark-slide-content .footer img {
     vertical-align: middle;
+	max-height:     24px;
+	margin-right:   0.5rem;
   }
 
   .hidden-comment {
     display:        none;
   }
 
+  .half img {
+    width:          50%;
+  }
+
 </style>
 
 class: center, middle
 
-.hidden-comment[<br><br><br><br>**If you are reading this**, you are looking at the *source*! [Use
-Remarkise](https://tripu.github.io/remark/remarkise?url=https%3A%2F%2Frawgit.com%2Fw3c%2Fechidna%2Ftripu%2Fmiscellanea%2Fdoc%2Fpresentation.md)
-instead] to **see the presentation in interactive slides**.<br><br><br><br>]
+.hidden-comment[<span style="background-color: #ffff00; text-align: center;"><br><br><br><br>**If you are reading this**,
+you are looking at the *source*! <br> [Use
+Remarkise instead](https://tripu.github.io/remark/remarkise?url=https%3A%2F%2Frawgit.com%2Fw3c%2Fechidna%2Ftripu%2Fmiscellanea%2Fdoc%2Fpresentation.md)
+to **see the presentation in interactive slides**.<br><br><br><br></span>]
 
 <!--······························································································································
 ····  If you aren't seeing this as an interactive presentation, in slides, open it with Remarkise:                            ····
@@ -45,11 +62,11 @@ instead] to **see the presentation in interactive slides**.<br><br><br><br>]
 
 # New publication workflow
 
-.center[![Logo](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/w3c-labs-logo.png)]
+.center.half[![Logo](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/w3c-labs-logo.png)]
 
 ---
 
-.footer[![Logo](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/w3c-labs-logo-small.png) New publication workflow]
+.footer[![Logo](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/w3c-labs-logo-small.png)New publication workflow]
 
 # How publishing happens today
 
@@ -60,7 +77,7 @@ instead] to **see the presentation in interactive slides**.<br><br><br><br>]
 
 ---
 
-.footer[![Logo](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/w3c-labs-logo-small.png) New publication workflow]
+.footer[![Logo](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/w3c-labs-logo-small.png)New publication workflow]
 
 # Problems
 
@@ -75,7 +92,7 @@ instead] to **see the presentation in interactive slides**.<br><br><br><br>]
 
 Let the robots steal our jobs!
 
-.center[![Robot](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/robots18.png)]
+.center.half[![Robot](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/robots18.png)]
 
 ---
 
@@ -144,18 +161,10 @@ This is considered bad practice, for a number of reasons.
 
 ---
 
-# What is this?
-
----
-
 # I'm team contact. How is this going to make my life easier?
 
 * Editors in your groups can publish themselves *without your intervention*.
 * Even if you help them, you'll save a lot of time.
-
----
-
-# What is this?
 
 ---
 
