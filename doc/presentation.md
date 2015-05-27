@@ -1,5 +1,42 @@
 
+<style type="text/css">
+
+  ul, li {
+    line-height:    125%;
+  }
+
+  li {
+    padding-top:    0.5em;
+  }
+
+  .remark-slide-container:first-child .remark-slide-number,
+  .remark-slide-container:nth-child(2) .remark-slide-number,
+  .remark-slide-container:last-child .remark-slide-number {
+    visibility:     hidden;
+  }
+
+  .remark-slide-content .footer {
+    position:       absolute;
+    bottom:         12px;
+    left:           20px;
+    opacity:        0.5;
+  }
+
+  .remark-slide-content .footer img {
+    vertical-align: middle;
+  }
+
+  .hidden-comment {
+    display:        none;
+  }
+
+</style>
+
 class: center, middle
+
+.hidden-comment[<br><br><br><br>**If you are reading this**, you are looking at the *source*! [Use
+Remarkise](https://tripu.github.io/remark/remarkise?url=https%3A%2F%2Frawgit.com%2Fw3c%2Fechidna%2Ftripu%2Fmiscellanea%2Fdoc%2Fpresentation.md)
+instead] to **see the presentation in interactive slides**.<br><br><br><br>]
 
 <!--······························································································································
 ····  If you aren't seeing this as an interactive presentation, in slides, open it with Remarkise:                            ····
@@ -12,6 +49,8 @@ class: center, middle
 
 ---
 
+.footer[![Logo](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/w3c-labs-logo-small.png) New publication workflow]
+
 # How publishing happens today
 
 * Editor pings team contact.
@@ -20,6 +59,8 @@ class: center, middle
 .center[Editor&nbsp;&nbsp;&nbsp;&nbsp;&harr;&nbsp;&nbsp;&nbsp;&nbsp;Team contact&nbsp;&nbsp;&nbsp;&nbsp;&harr;&nbsp;&nbsp;&nbsp;&nbsp;Webmaster]
 
 ---
+
+.footer[![Logo](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/w3c-labs-logo-small.png) New publication workflow]
 
 # Problems
 
@@ -78,11 +119,11 @@ Let the robots steal our jobs!
 
 # Where we are
 
----
-
 &#10007; `https://w3.org/publish/`.
 
 &#10003; HTTP Endpoint.
+
+---
 
 # Challenges
 
@@ -137,8 +178,4 @@ This is considered bad practice, for a number of reasons.
 * Thanks to Systeam and others for reviewing and contributing.
 
 <div>Icons made by <a href="http://www.flaticon.com/authors/plainicon" title="Plainicon">Plainicon</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>
-
----
-
-EOF
 
