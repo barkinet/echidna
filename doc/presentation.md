@@ -56,8 +56,23 @@
     color:            #00c000;
   }
 
+  .nb-call {
+    color:            #800080;
+  }
+
+  .nb {
+    font-size:        67%;
+	text-align        right;
+	vertical-align:   bottom;
+    color:            #800080;
+  }
+
   code {
     color:            #ff0000;
+  }
+
+  a code {
+    color:            inherit;
   }
 
 </style>
@@ -94,35 +109,55 @@ to **see the presentation in interactive slides**.<br><br><br><br>]
 
 ---
 
-# How publishing happens today
+# How publishing happens today .nb-call[\*]
 
 1. Editor pings team contact
 2. Team contact downloads all files; maybe uploads to some intermediate location
 3. Team contact pings webmaster
 4. Webmaster finds issues in spec (most likely); tells team contact
-5. Team contact fixes problem, or informs editor
-6. Iterate from through steps 1 to 5 until things look good.
+5. Team contact fixes problem, or passes the ball to the editor
+6. Iterate between steps 1 and 5 until things look OK
 7. Webmaster publishes in a semi-automatic way; informs other parts
 
 .center[Editor&nbsp;&nbsp;&nbsp;&nbsp;&harr;&nbsp;&nbsp;&nbsp;&nbsp;Team contact&nbsp;&nbsp;&nbsp;&nbsp;&harr;&nbsp;&nbsp;&nbsp;&nbsp;Webmaster]
 
-Your mileage may vary.
+.nb[\* Your mileage may vary.]
 
 .footer[![Logo](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/w3c-labs-logo-small.png)New publication workflow]
 
 ---
 
+# About those intermediate locations
+
+* Some staff contacts copy specs to be published to W3C space (or somewhere else)  
+eg [`http://www.w3.org/TR/2015/WD-xquery-update-30-20150219/`](http://www.w3.org/TR/2015/WD-xquery-update-30-20150219/)
+* Those locations are non-announced, intermediate copies, *but not temporary*, ie stuff stays there forever
+* This is considered a bad practice (or at least it will be now)
+
+.footer[![Logo](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/w3c-labs-logo-small.png)New publication workflow]
+
+---
+
+template: comment
+
+How accurate was that description?
+
+What do other editors and team contacts do? What tools or steps?
+
+What other aspects will be improved by Echidna?
+
+---
+
 # Problems
 
-* Webmaster and others kept busy with repetitive tasks
-* Back and forth between roles
+* Webmaster and other in team kept busy with repetitive tasks
+* Tedious, asynchronous back and forth between roles
 * Releasing often is effectively discouraged (it takes effort, and time)
-* Validation should be easier
-* Publication should be fully automated
-* `TR/` full of unused, intermediate copies of specs, eg  
-[`http://www.w3.org/TR/2015/WD-xquery-update-30-20150219/`](http://www.w3.org/TR/2015/WD-xquery-update-30-20150219/)
+* Validating specs before publication is difficult
+* `/TR` contains unnecessary copies of specs,  
+eg [`http://www.w3.org/TR/2015/WD-xquery-update-30-20150219/`](http://www.w3.org/TR/2015/WD-xquery-update-30-20150219/)
 * Publication depends on all actors being available,  
-ie, webmaster and systeam busy &rarr; publications have to wait
+ie, webmaster and systeam are busy &rarr; publications have to wait
 
 .footer[![Logo](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/w3c-labs-logo-small.png)New publication workflow]
 
@@ -130,39 +165,41 @@ ie, webmaster and systeam busy &rarr; publications have to wait
 
 # In an ideal world: automatic publication
 
-1. Editor pushes changes, eg to **GitHub**
-2. CI (&ldquo;continuous integration&rdquo;) system kicks in, eg **Travis CI**
-3. CI system sends *shortname* to Echidna, plus an auth token
-4. .green[Echidna infers:]
-  1. .green[Base URL of the spec]
-  2. .green[Type of spec]
-  2. .green[Metadata: WG, other editors, etc]
-5. .green[Validation:]
-  1. .green[Echidna runs pubrules checker in the background]
-  2. .green[And presents comprehensive information about result of validation]
-  3. .green[&hellip;including info about errors, with pointers to specific pubrules]
-6.
+1. .green[Editor pushes changes, eg to **GitHub**]
+2. .green[CI (&ldquo;continuous integration&rdquo;) system, eg **Travis CI**, kicks in]
+3. .green[CI system sends *shortname* to Echidna, plus an *auth token*]
+4. Echidna infers:
+  1. Base URL of the spec
+  2. Type of spec
+  2. Metadata: WG, editors, etc
+5. Validation:
+  1. Echidna runs pubrules checker in the background
+  2. Presents on the page comprehensive information about validation
+  3. &hellip;including info about errors, with pointers to specific pubrules
+6. If there are errors, edit spec and go to step 1
+7. Otherwise, \[publication, @todo\]
+8. Spec published under `/TR`; e-mail notifications sent
 
 .footer[![Logo](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/w3c-labs-logo-small.png)New publication workflow]
 
 ---
 
-# In an ideal world: &ldquo;manual&rdquo; publication
+# In an ideal world: &ldquo;triggered&rdquo; publication
 
-1. Editor goes to `https://w3.org/publish/` (basic auth, W3C credentials)
-  1. Echidna knows what specs are associated to him/her
-  2. Editor selects one among all those specs (a *shortname*)
-2. .green[Echidna infers:]
-  1. .green[Base URL of the spec]
-  2. .green[Type of spec]
-  2. .green[Metadata: WG, other editors, etc]
-3. .green[Validation:]
-  1. .green[Echidna runs pubrules checker in the background]
-  2. .green[And presents comprehensive information about result of validation]
-  3. .green[&hellip;including info about errors, with pointers to specific pubrules]
-4. While there are errors, edit spec and go back to step 3
-5. Editor confirms publication
-6. Spec published under `TR`; e-mail notifications sent
+1. .green[Editor goes to `https://w3.org/publish/` (basic auth, W3C credentials)]
+2. .green[Echidna finds out what specs are associated to him/her]
+3. .green[Editor selects one among those specs (a *shortname*) and hits *publish*]
+4. Echidna infers:
+  1. Base URL of the spec
+  2. Type of spec
+  2. Metadata: WG, other editors, etc
+5. Validation:
+  1. Echidna runs pubrules checker in the background
+  2. Sends back comprehensive information about validation
+  3. &hellip;including info about errors, with pointers to specific pubrules
+6. If there are errors, edit spec and go to step 1.3
+7. Editor confirms publication \[@todo\]
+8. Spec published under `/TR`; e-mail notifications sent
 
 .footer[![Logo](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/w3c-labs-logo-small.png)New publication workflow]
 
@@ -170,15 +207,12 @@ ie, webmaster and systeam busy &rarr; publications have to wait
 
 # Advantages
 
-* Webmaster and others freed for
-* No back and forth between roles
-* Releasing very often possible (see *challenges*)
-* Validation becomes easy
-* Publication should be fully automated
-* `TR/` full of unused, intermediate copies of specs, eg  
-[`http://www.w3.org/TR/2015/WD-xquery-update-30-20150219/`](http://www.w3.org/TR/2015/WD-xquery-update-30-20150219/)
-* Publication depends on all actors being available,  
-ie, webmaster and systeam busy &rarr; publications have to wait
+* Webmaster and others freed for more productive work
+* No more asynchronous back and forth between actors
+* Releasing very often becomes possible (but see *challenges*)
+* Better validation
+* No more intermediate copies
+* Publish any day, any time (barring moratoria)
 
 .footer[![Logo](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/w3c-labs-logo-small.png)New publication workflow]
 
@@ -188,7 +222,11 @@ ie, webmaster and systeam busy &rarr; publications have to wait
 
 &#10007; `https://w3.org/publish/`.
 
-&#10003; HTTP Endpoint.
+&#10003; HTTP Endpoint: [`https://labs.w3.org/echidna/api/version`](https://labs.w3.org/echidna/api/version)
+
+&#10003; Web UI (WIP): [branch `tripu/web-interface`](https://github.com/w3c/echidna/tree/tripu/web-interface)
+
+\[@todo: add more details, eg interactions w/ CVS, DB, etc\]
 
 .footer[![Logo](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/w3c-labs-logo-small.png)New publication workflow]
 
@@ -201,17 +239,7 @@ ie, webmaster and systeam busy &rarr; publications have to wait
 * Exceptions
 * Exceptions
 
-.footer[![Logo](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/w3c-labs-logo-small.png)New publication workflow]
-
----
-
-# *&ldquo;team contact copies doc to temporary space&hellip;&rdquo;*
-
-Some staff contacts copy.
-
-Those locations are non-public, intermediate copies, *but not temporary*, ie stuff stays there.
-
-This is considered bad practice, for a number of reasons.
+\[@todo: add more issues\]
 
 .footer[![Logo](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/w3c-labs-logo-small.png)New publication workflow]
 
@@ -219,14 +247,80 @@ This is considered bad practice, for a number of reasons.
 
 # I'm team contact. How is this going to make my life easier?
 
-* Editors in your groups can publish themselves *without your intervention*.
-* Even if you help them, you'll save a lot of time.
+* Editors in your groups can publish themselves *without your intervention*
+* Even if you help them, you'll save a lot of time
 
 .footer[![Logo](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/w3c-labs-logo-small.png)New publication workflow]
 
 ---
 
-# The components
+# How to publish (as a team contact)
+
+1. If the spec is already at a publicly-accessible URL, do *not* copy it elsewhere
+
+\[@todo\]
+
+.footer[![Logo](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/w3c-labs-logo-small.png)New publication workflow]
+
+---
+
+# How to publish (as an editor/chair)
+
+\[@todo\]
+
+.footer[![Logo](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/w3c-labs-logo-small.png)New publication workflow]
+
+---
+
+template: comment
+
+What is the role of *chairs* here? How are we helping them?
+
+---
+
+# The process (1): for now
+
+* Bare HTTP endpoint
+* Use with `curl` (command line) or typing calls on your browser's location bar
+
+\[@todo\]
+
+.footer[![Logo](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/w3c-labs-logo-small.png)New publication workflow]
+
+---
+
+# The process (2): hopefully soon
+
+* Reference UI, developed in-house  
+eg `https://w3.org/publish/`
+* Work is ongoing: [branch `tripu/web-interface`](https://github.com/w3c/echidna/tree/tripu/web-interface)
+
+
+\[@todo\]
+
+.footer[![Logo](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/w3c-labs-logo-small.png)New publication workflow]
+
+---
+
+# The process (3): ultimately
+
+* Several user-contributed clients, cattering to different needs
+
+\[@todo\]
+
+.footer[![Logo](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/w3c-labs-logo-small.png)New publication workflow]
+
+---
+
+# References
+
+\[@todo: links to wiki, issues, mail archive, etc\]
+
+.footer[![Logo](https://raw.githubusercontent.com/w3c/echidna/tripu/miscellanea/doc/w3c-labs-logo-small.png)New publication workflow]
+
+---
+
+# The pieces
 
 * Echidna
 * Specberus (ˈspɛk bər əs) *n. new* pubrules *automatic checker and documentation tool.*
@@ -239,7 +333,7 @@ This is considered bad practice, for a number of reasons.
 
 template: comment
 
-# Demo here?
+Demo here?
 
 Idea:
 
